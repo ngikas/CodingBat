@@ -17,7 +17,7 @@ public class AP1 {
 		ArrayList<String> letters = new ArrayList<String>();
 		int count = 0;
 
-		int j = 0; //for b
+		int j = 0; //for b2
 		for (int i = 0; i < a.length; i++) {
 			while (j < b.length && a[i].compareTo(b[j]) > 0) {
 				j++;
