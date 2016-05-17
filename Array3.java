@@ -1,13 +1,6 @@
 import java.util.*;
 
 public class Array3 {
-	public static void main(String[] args) {
-		int[] array = {1, 2, 1, 20, 21, 1, 2, 1, 2, 23, 24, 2, 1, 2, 1, 25};
-		int[] array2 = {2,4};
-		//System.out.println(Arrays.toString(seriesUp(5)));
-		System.out.println(maxMirror(array));
-
-	}
 
 	static int countClumps(int[] nums) {
 		int clumpCount = 0;

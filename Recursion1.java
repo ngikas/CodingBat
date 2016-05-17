@@ -1,8 +1,4 @@
 public class Recursion1 { //every method should have a base case
-	public static void main(String[] args) {
-		int[] array = {1,2,21};
-		System.out.println(strCopies("iiijjj", "ii", 2));
-	}
 
 	/*
 	 *	STR DIST

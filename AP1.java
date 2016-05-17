@@ -1,9 +1,6 @@
 import java.util.*;
 
 public class AP1 {
-	public static void main(String[] args) {
-
-	}
 
 	/*
 	 *	COMMON TWO
