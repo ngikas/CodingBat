@@ -5,20 +5,19 @@ public class Recursion2 {
 	}
 
 	static boolean groupSum(int start, int[] nums, int target) {
-		System.out.println("Checking index " + start + " on nums with target " + target);
-		if (start >= nums.length) return target == 0; //bc
+		System.out.println("Start: " + start + " target is now: " + target);
+		if (start >= nums.length) return target == 0; //bc: checking if the start index is at the end
+		
+		if (groupSum(start + 1, nums, target - nums[start])) return true;
 
-		if (groupSum(start + 1, nums, target - nums[start])) {
-			System.out.println("1. Target has been reached. " + target);
-			return true;
-		}
-			
-		if (groupSum(start + 1, nums, target)) {
-			System.out.println("2. Target has been reached. " + target);
-			return true;
-		} 
+		if (groupSum(start + 1, nums, target)) return true;
 
-		System.out.println("Target cannot be reached. " + target);
 		return false;
+		
+		//
+		//3 -4 false
+		//2 4, 3 4 false 
+		//1 8, 2 0 pause  
+		//0 10 pause
 	}
 }
