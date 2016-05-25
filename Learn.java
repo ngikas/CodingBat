@@ -1,4 +1,53 @@
 public class Learn {
+	public static void main(String[] args) {
+		System.out.println(reverseEach("knowledge is power"));
+	}
+
+	/*
+	 *	STRING PRACTICE 1-2
+	 */
+	static String reverseEach(String text) {
+		StringBuilder sb = new StringBuilder();
+		String[] sentence = text.split(" ");
+		for (String word : sentence) {
+			sb.append(reverse(word) + " ");
+		}
+		return sb.toString();
+	}
+
+	static String reverse(String text) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = text.length() - 1; i >= 0; i--) {
+			sb.append(text.charAt(i));
+		}
+		return sb.toString();
+	}
+
+	static String pigLatinSentences(String text) {
+		StringBuilder sb = new StringBuilder();
+		String[] sentence = text.split(" "); //returns an array with each word
+		for (String word : sentence) {
+			sb.append(pigLatin(word) + " ");
+		}
+		return sb.toString();
+	}
+
+	static String pigLatin(String word){
+		for (int i = 0; i < word.length(); i++) {
+			char capital = Character.toLowerCase(word.charAt(i));
+			if (capital == 'a' || capital == 'e' ||
+				capital == 'i' || capital == 'o' ||
+				capital == 'u') {
+				word = word.substring(i) + word.substring(0,i);
+				break;
+			}
+			else
+			continue;
+		
+		}
+		
+		return word + "ay";
+	}
 
 	/*
 	 *	DOUBLE LOOPS
@@ -79,5 +128,14 @@ public class Learn {
 		//if there are no duplicates
 		System.out.println("none");
 
+	}
+
+	//Swap W/O a temp variable
+	static void auxSwap(int x, int y) {
+		System.out.println("x: " + x + " y: " + y);
+		x = x ^ y;
+		y = x ^ y;
+		x = x ^ y;
+		System.out.println("x: " + x + " y: " + y);
 	}
 }
