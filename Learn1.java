@@ -214,6 +214,41 @@ public class Learn1 {
 		return false;
 	}
 
+	public static void main(String[] args) {
+		int[] array = {51, 80, 63, 12, 40, 75, 15, 18};
+		System.out.println(primePrime(array));
+	}
+
+	//Prime Prime
+	static int primePrime(int[] array) {
+		int max = 0;
+		int primePrimeVal = 0;
+
+		//sieve
+		int[] primes = new int[10001];
+		primes[0] = -1;
+		primes[1] = -1;
+		for (int i = 2; i < primes.length; i++) {
+			if (primes[i] == 0) {
+				for (int j = 2; i * j < primes.length; j++) {
+					primes[i*j] = -1;
+				}
+			}
+		}
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 2; j <= array[i]; j++) {
+				if (primes[j] >= 0 && array[i] % j == 0) {
+					primes[j]++;
+					if (primes[j] > max) {
+						max = primes[j];
+						primePrimeVal = j;
+					}
+				}
+			}
+		}
+		return primePrimeVal;
+	}
+
 	//Duplicate Diamonds
 	static int duplicateDiamonds(int[] array) {
 		int maxDistanceVal = 0;
