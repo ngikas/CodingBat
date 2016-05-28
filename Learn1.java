@@ -1,14 +1,13 @@
 import java.util.*;
 
 public class Learn1 {
+	public static void main(String[] args) {
+		System.out.println("New #4barfriday on the 'gram!!!! @9psd2");
+	}
 
 	/*
 	 *	LANGUAGE DETAILS
 	 */
-	static void rocketShip(int a, int b) {
-		System.out.println((long)a * 365 * (long)b * 24);
-	}
-
 	static void nextFiveChars(char c) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(c);
@@ -17,6 +16,12 @@ public class Learn1 {
 		}
 		System.out.println(sb.toString());
 	}
+
+	static void rocketShip(int a, int b) {
+		System.out.println((long)a * 365 * (long)b * 24);
+	}
+
+	
 
 	static int oddCards(int[] cards){
 		int sum = 0;
