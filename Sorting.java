@@ -3,28 +3,12 @@ import java.util.*;
 public class Sorting {
 
 	public static void main(String[] args) {
-		Blob[] array = new Blob[20];
-		array[0] = new Blob(0, "ab");
-		array[1] = new Blob(6, "cd");
-		array[2] = new Blob(0, "ef");
-		array[3] = new Blob(6, "gh");
-		array[4] = new Blob(4, "ij");
-		array[5] = new Blob(0, "ab");
-		array[6] = new Blob(6, "cd");
-		array[7] = new Blob(0, "ef");
-		array[8] = new Blob(6, "gh");
-		array[9] = new Blob(0, "ij");
-		array[10] = new Blob(4, "that");
-		array[11] = new Blob(3, "be");
-		array[12] = new Blob(0, "to");
-		array[13] = new Blob(1, "be");
-		array[14] = new Blob(5, "question");
-		array[15] = new Blob(1, "or");
-		array[16] = new Blob(2, "not");
-		array[17] = new Blob(4, "is");
-		array[18] = new Blob(2, "to");
-		array[19] = new Blob(4, "the");
-		fullCountingSort(array);
+	
+	}
+
+	//Quicksort
+	static void partition(int[] ar) {
+
 	}
 
 	//Full counting sort (for extra data)
@@ -40,20 +24,10 @@ public class Sorting {
         }
         
         String[] newArray = new String[ar.length];
-        int cIndex = 0;
-        int blobIndex = 0;
-        for (int i = 0; i < ar.length; i++) {
+        for (int i = ar.length - 1; i >= 0; i--) {
 			//accessing original array
-			while (i < ar.length && blobIndex < c[cIndex]) {
-				if (ar[i].num == cIndex) {
-					newArray[blobIndex] = ar[i].string;
-					blobIndex++;
-				}
-				i++;
-			}
-			cIndex++;
-			if (cIndex > c.length - 1 || blobIndex > ar.length - 1) break;
-			i = -1;
+			c[ar[i].num]--;
+			newArray[c[ar[i].num]] = ar[i].string;
 		}
         
         for (String str : newArray) {
@@ -83,7 +57,7 @@ public class Sorting {
 		}
 		int[] newArray = new int[array.length];
 
-		for (int i = 0; i < array.length; i++) {
+		for (int i = array.length - 1; i >= 0; i--) {
 			//accessing original array
 			c[array[i]]--;
 			newArray[c[array[i]]] = array[i];
