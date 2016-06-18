@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Challenges {
 	public static void main(String[] args) {
-		System.out.println(balanced("{[(])}"));
+		decimalToBinary(7770);
 	}
 
 	static boolean balanced(String text) {
@@ -69,5 +69,19 @@ public class Challenges {
 		}
 
 		return count;
+	}
+
+	static void decimalToBinary(long n) { //works for only positive values
+		Stack<Long> stack = new Stack<>();
+		int count = 0;
+		while (n > 0) {
+			count++;
+			stack.push(n % 2);
+			n /= 2;
+		}
+		for (int i = 0; i < count; i++) {
+			System.out.print(stack.pop());
+		}
+		System.out.println();
 	}
 }
