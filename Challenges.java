@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Challenges {
 	public static void main(String[] args) {
-		decimalToBinary(7770);
+		System.out.println(decimalToBinary(5));
 	}
 
 	static boolean balanced(String text) {
@@ -84,4 +84,23 @@ public class Challenges {
 		}
 		System.out.println();
 	}
+
+	static int decimalToBinary(int n) {
+        Stack<Integer> stack = new Stack<>();
+        int max = 0;
+        int mostConsecutiveOnes = 0;
+        while (n > 0) {
+        	System.out.println("CHECKING " + n);
+            stack.push(n % 2);
+            if (n % 2 == 1) {
+                mostConsecutiveOnes++;
+                System.out.println("MCO " + mostConsecutiveOnes);
+                max = Math.max(max, mostConsecutiveOnes);
+            } else {
+                mostConsecutiveOnes = 0;
+            }
+            n /= 2;
+        }
+        return max;
+    }
 }
