@@ -1,8 +1,71 @@
 import java.util.*;
+import java.text.*;
 
 public class Challenges {
 	public static void main(String[] args) {
-		System.out.println(decimalToBinary(5));
+	}
+
+	public static void estimatePi(long n) {
+		System.out.println("i\tm(i)");
+		System.out.println("-----------------");
+		int four = 4;
+		double fractions = 0;
+		for (int i = 1; i <= n; i++) {
+			fractions += (double) (Math.pow(-1, i + 1) / (2 * i - 1)); 
+			double pi = four * fractions;
+			if (i % 100 == 1) System.out.println(i + "\t" + String.format("%.15f", pi));
+		}
+		System.out.println("PI:\t" + Math.PI);
+	}
+
+	public static void sumSeries(int n) {
+		System.out.println("i\tm(i)");
+		System.out.println("-----------------");
+		double product = 0;
+		for (int i = 1; i <= n; i++) {
+		 	product += ((double) i / ((double)i + 1));
+			System.out.println(i + "\t" + String.format("%.4f", product)); //.format method returns a string
+		}
+	}
+
+	public static double futureInvestmentValue(double investmentAmount, double monthlyInterestRate, int years) {
+		System.out.println("Years\tFuture Value");
+		double rate = monthlyInterestRate / 1200;
+		
+		for (int i = 1; i <= years; i++) {	
+			double increasedAmount = investmentAmount * Math.pow(rate + 1, i * 12);
+			System.out.println(i + "\t" + String.format("%.2f", increasedAmount));
+		}
+		return investmentAmount; //final investment amount
+	}
+
+	public static void displayPattern(int n) {
+		for (int i = 1; i <= n; i++) {
+			for (int j = n; j > 0; j--) {
+				if (j > i) System.out.print(" " + " ");
+				else System.out.print(j + " ");
+			}
+			System.out.println();
+		}
+	}
+
+	public static boolean isPalindrome(int number) {
+		return number == reverse(number);
+	}
+
+	// Return the reversal of an integer, i.e., reverse(456) returns 654
+	public static int reverse(int number) {
+		StringBuilder rev = new StringBuilder();
+		while (number > 0) {
+			rev.append(number % 10);
+			number /= 10;
+		}
+
+		return Integer.parseInt(rev.toString());
+	}
+
+	public static int getPentagonalNumber(int n) {
+		return ((n * n * 3) - n) / 2;
 	}
 
 	static boolean balanced(String text) {
